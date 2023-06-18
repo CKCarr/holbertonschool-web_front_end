@@ -8,8 +8,8 @@ Create a new declaration targeting all 6 levels of section headings, positioned 
 set its font-family to font-family-title */
 
 :root {
-    --font-family-base: Helvetica Neue, Helvetica, Arial, sans-serif;
-    --font-family-title: Helvetica Neue, Helvetica, Arial, sans-serif;
+    --font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-family-title: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
