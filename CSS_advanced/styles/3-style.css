@@ -8,6 +8,10 @@ text-color set to color-black
 Revisit the section-tagline and card-category declarations and reset their color to color-primary
 Revisit the body and anchor declarations and reset their color to text-color*/
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --color-primary: #d73953;
     --color-black: #090909;
@@ -17,10 +21,23 @@ Revisit the body and anchor declarations and reset their color to text-color*/
     --text-color: var(--color-black);
 }
 
-.section-tagline, .card-category {
+
+body {
+    color: var(--text-color)
+}
+
+a {
+    color: var(--text-color)
+}
+
+.visually-hidden {
+    display: none;
+}
+
+.card-category {
     color: var(--color-primary);
 }
 
-body, a {
-    color: var(--text-color);
+.section-tagline {
+    color: var(--color-primary);
 }

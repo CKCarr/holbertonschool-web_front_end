@@ -6,6 +6,10 @@ All elements with the class card-category, should have their foreground color se
 All elements with the class section-tagline should have their foreground color set to #D73953
 */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: #161616;
 }
