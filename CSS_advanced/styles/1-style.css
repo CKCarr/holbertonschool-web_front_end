@@ -5,6 +5,5 @@ as fluid as possible.
 */
 
 html {
-    scroll-behavior: smooth; /* Enables smooth scrolling behavior */
-    overflow-y: scroll; /* Shows vertical scrollbar even when not scrolling */
+    scroll-behavior: smooth;
 }
