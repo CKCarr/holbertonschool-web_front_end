@@ -1,0 +1,26 @@
+/* Target the root element and define the following custom properties:
+color-primary set to #d73953
+color-black set to #090909
+color-white set to #ffffff
+color-light-grey set to #f3f3f3
+color-dark-grey set to #353535
+text-color set to color-black
+Revisit the section-tagline and card-category declarations and reset their color to color-primary
+Revisit the body and anchor declarations and reset their color to text-color*/
+
+:root {
+    --color-primary: #d73953;
+    --color-black: #090909;
+    --color-white: #ffffff;
+    --color-light-grey: #f3f3f3;
+    --color-dark-grey: #353535;
+    --text-color: var(--color-black);
+}
+
+.section-tagline, .card-category {
+    color: var(--color-primary);
+}
+
+body, a {
+    color: var(--text-color);
+}
