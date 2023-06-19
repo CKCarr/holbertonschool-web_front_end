@@ -159,6 +159,12 @@ ul.row {
     padding: 0.5rem;
 }
 
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 /* Footer */
 .footer {
     padding: var(--footer-padding);
