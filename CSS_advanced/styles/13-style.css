@@ -60,22 +60,24 @@ a {
     text-decoration: none;
 }
 
-a[href]:not([href^="#"]) {
-    /* styles for anchor elements that do not start with '#' [a hyperlink] */
+a:link {
+    /* styles for anchor elements */
+    color: var(--text-color);
+    text-decoration: none;
 }
 
-a[href]:not([href^="#"]):visited {
-    /* styles for anchor elements that do not start with '#' [a hyperlink] when visited */
+a:visited {
+    /* styles for anchor elements when visited */
     font-style: italic;
 }
 
-a[href]:not([href^="#"]):hover {
-    /* styles for anchor elements that do not start with '#' [a hyperlink] when hovering */
+a:hover {
+    /* styles for anchor elements when hovering */
     text-decoration: underline;
 }
 
-a[href]:not([href^="#"]):active {
-    /* styles for anchor elements that do not start with '#' [a hyperlink] when active */
+a:active {
+    /* styles for anchor elements when active */
     background-color: var(--color-light-grey);
 }
 
