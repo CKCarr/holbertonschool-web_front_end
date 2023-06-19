@@ -3,7 +3,7 @@
 /*# sourceMappingURL=normalize.min.css.map */
 
 /* universal box sizing rules */
-* {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
