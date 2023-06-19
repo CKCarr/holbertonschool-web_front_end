@@ -140,6 +140,13 @@ a:active {
     text-align: var(--section-footer-align);
     }
 
+/* Style the data-section-theme=“dark” */
+[data-section-theme="dark"] {
+    --text-color: var(--color-white);
+    --section-title-color: var(--color-white);
+    background: var(--color-black);
+}
+
 /* Grid Styling */
 ul.row {
     margin: 0;
