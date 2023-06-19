@@ -140,6 +140,13 @@ a:active {
     text-align: var(--section-footer-align);
     }
 
+/* Style the data-section-theme=“dark” */
+[data-section-theme="dark"] {
+    --text-color: var(--color-white);
+    --section-title-color: var(--color-white);
+    background: var(--color-black);
+}
+
 /* Grid Styling */
 ul.row {
     margin: 0;
@@ -182,6 +189,10 @@ ul.row {
     text-align: right;
 }
 
+.footer-address {
+    color: var(--text-color);
+}
+
 /* Navigation */
 .navbar-menu {
     float: right;
@@ -215,6 +226,15 @@ ul.row {
 
 .visually-hidden {
     display: none;
+}
+
+/* Social Styling */
+.social-link {
+    display: block;
+}
+
+.social-link svg {
+    fill: var(--text-color);
 }
 
 .container {
