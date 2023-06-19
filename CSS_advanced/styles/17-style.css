@@ -7,11 +7,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-size: 62.5%;
-}
-
 :root {
     /* Colors */
     --color-primary: #d73953;
@@ -22,7 +17,7 @@ html {
     --text-color: var(--color-black);
     /* Fonts */
     --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-family-title: 'Raleway','Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-family-title: 'Raleway', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     /* Font sizes */
     --font-size-small: 1.2rem;
     --font-size-medium: 1.6rem;
@@ -41,6 +36,11 @@ html {
     --section-tagline-transform: uppercase;
     --section-title-margin: 0;
     --section-title-color: var(--color-black);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
 }
 
 h1, h2, h3, h4, h5, h6 {
