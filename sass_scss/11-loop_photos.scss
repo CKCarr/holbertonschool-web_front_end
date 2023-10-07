@@ -1,0 +1,10 @@
+// Import the list of names and background images
+@import 'list-names';
+
+// Loop through the list and generate classes
+@each $name, $image in $list-names {
+    .#{$name} {
+        background-image: url('#{$image}');
+        // Additional styling if needed
+    }
+}

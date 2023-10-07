@@ -1,0 +1,7 @@
+// Import the color variables
+@import '10-colors';
+
+// Define styles using the imported variables
+.red {
+    color: $red;
+}
