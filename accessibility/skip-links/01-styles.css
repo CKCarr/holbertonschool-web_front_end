@@ -189,6 +189,32 @@
     white-space: nowrap;
   }
   
+  /* Target the off-screen class */
+.off-screen {
+  left: -100vw;
+  position: absolute;
+}
+
+/* Target the skip-link class */
+.skip-link {
+  background: var(--color-black); /* Link to the color-black variable */
+  color: var(--color-white); /* Link to the color-white variable */
+  left: 0;
+  padding: .7rem;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  z-index: 10;
+  transform: translateY(-1rem);
+  transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+}
+
+/* Target the focus state of skip-link class */
+.skip-link:focus {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   /*** 2. LAYOUT ***/
   
   /* Layout
