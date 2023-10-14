@@ -898,7 +898,7 @@ textarea:focus {
   color: var(--color-dark-grey);
   font-size: var(--font-size-small);
   max-height: 0;
-  transition: 0.3s;
+  transition: .3s;
   overflow: hidden;
 }
 
