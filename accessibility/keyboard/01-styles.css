@@ -686,10 +686,13 @@
       --text-color: var(--color-white);
       position: relative;
     }
-  
-    .card-work .card-title {
-      opacity: 1;
-    }
+
+  .card-work .card-title {
+    text-align: center;
+    margin: 0;
+    height: 100%;
+    position: relative;
+  }
 /* additions */
 .card-work .card-title a {
   display: block;
