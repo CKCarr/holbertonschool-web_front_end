@@ -803,8 +803,8 @@ ul.row {
 /* Comment section
     ============================= */
 
-.post-comments {
-    width: 60%;
+.post-comments .section-title{
+    width: 80%;
     margin: 10rem 0 0 auto;
     padding-left: 7rem;
 }
