@@ -875,7 +875,7 @@ textarea:focus {
 
 .form-group:focus-within {
   background-color: var(--color-light-grey);
-  transition-property: 0.3s;
+  transition: 0.3s;
 }
 /* Form field
 ============================= */
@@ -905,4 +905,6 @@ textarea:focus {
 .form-group:focus-within .form-help {
   max-height: 20rem;
   margin: 0.4rem 0 0;
+
 }
+
