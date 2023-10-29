@@ -19,19 +19,16 @@ a:focus {
     color: #E0003C
 }
 
-.card {
-    border-color: #E0003C;
-    border-radius: 1rem;
-}
-
-.card-header,
+.card,
 .card-footer {
     border-color: #E0003C;
+    border-radius: 1rem;
 }
 
 .card-header {
     background-color: #E0003C;
     color: #fff;
+    border-radius: 1rem;
 }
 
 .text-muted {
