@@ -1,5 +1,7 @@
 .btn-primary {
     background-color: #E0003C;
+    color: #FFFFFF;
+    border-color: #E0003C;
 }
 
 .btn-primary:hover,
@@ -7,6 +9,7 @@
 .btn-primary:active {
     background-color: #BC1340 !important;
     border-color: #BC1340 !important;
+    color: #FFFFFF !important;
 }
 
 .btn-outline-primary {
@@ -16,16 +19,15 @@
 
 .btn-outline-primary:hover {
     color: #fff !important;
-    border-color: #BC1340 !important;
-    background-color: #BC1340 !important;
+    border-color: #E0003C  !important;
+    background-color: #E0003C !important;
 }
 
-a
-a:hover,
-a:focus {
-    color: #fff !important;
-    border-color: #E0003C !important;
-    background-color: #BC1340 !important;
+a,
+a.text-dark:hover,
+a.text-dark:focus {
+    color: #E0003C!important;
+    text-decoration: none;;
 }
 
 
@@ -37,11 +39,19 @@ a:focus {
 
 .card-header {
     background-color: #E0003C;
-    color: #fff;
+    color: #FFFFFF;
     border-top-right-radius: 1rem !important;
     border-top-left-radius: 1rem !important;
 }
 
+.card-header:first-child {
+    border-radius: calc(1rem - 1px) calc(1rem - 1px) 0 0;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #E0003C !important;
+}
+
 .text-muted {
-    color: #8C8C8C;
+    color: #8C8C8C !important;
 }
