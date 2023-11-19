@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Task 9</title>
+    <style>
+        .loading {
+            opacity: 0.2;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+
+        function displayLoading(loading) {
+            let firstUL = $('ul:first');
+            if (loading) {
+                firstUL.wrap('<div class="loading"></div>');
+            } else {
+                firstUL.unwrap();
+            }
+        }
+
+        function createSearchForm() {
+            $('body').append(`
+            <form id="searchForm">
+                <input type="text" placeholder="Wikipedia API Search">
+                <input type="submit" value="Search">
+                <ul id="resultsList"></ul>
+            </form>
+            <ul id="pagination"></ul>
+            `);
+
+
+            $('#searchForm').on('submit', function (e) {
+                e.preventDefault();
+                const searchText = $(this).find('input[type="text"]').val();
+                queryWikipedia(searchText);
+            });
+        }
+
+        function addNewArticle(id, title, snippet) {
+            const articleItem = $(`
+        <li>
+            <p><span>${id} - </span><b>${title}</b></p>
+            <p>${snippet}</p>
+        </li>
+    `);
+            $('#resultsList').append(articleItem);
+        }
+
+
+        function queryWikipedia(search, offset = 0) {
+            // call displayLoading before API query
+            displayLoading(true);
+
+            $.ajax({
+                url: 'https://en.wikipedia.org/w/api.php',
+                data: {
+                    action: 'query',
+                    list: 'search',
+                    srsearch: search,
+                    format: 'json',
+                    origin: '*',
+                    sroffset: offset
+                },
+                dataType: 'json',
+                success: function (data) {
+                    // disable loading after API query
+                    displayLoading(false);
+                    // empty resultsList
+                    $('#resultsList').empty();
+                    // return results
+                    data.query.search.forEach(function (a) {
+                        addNewArticle(a.id, a.title, a.snippet);
+                    });
+                    // build pagination
+                    buildPagination(data.query.searchinfo.totalhits, 10, offset);
+                },
+                error: function (error) {
+                    // disable loading after API query
+                    displayLoading(false);
+                    // log error
+                    console.error('Error fetching data from Wikipedia API');
+                }
+            });
+        }
+
+        function buildPagination(numberOfItems, itemsPerPage, currentOffset) {
+            // empty pagination
+            $('#pagination').empty();
+            // loop display page total numOfItems / itemsPerPage
+            const totalPages = Math.ceil(numberOfItems / itemsPerPage);
+
+            for (let i = 0; i < totalPages; i++) {
+                const offset = i * itemsPerPage;
+                const pageItem = $(`<li>${i + 1}</li>`)
+                pageItem.css({
+                    'display': 'inline-block',
+                    'margin': '0 5px',
+                    'cursor': 'pointer'
+                });
+
+                pageItem.on('click', function () {
+                    queryWikipedia($('#searchForm').find('input[type="text"]').val(), offset);
+                });
+
+                if (currentOffset === offset) {
+                    pageItem.css('font-weight', 'bold');
+                }
+
+                $('#pagination').append(pageItem);
+            }
+        }
+
+        $(document).ready(function () {
+            createSearchForm();
+        });
+
+
+
+    </script>
+
+
+</body>
+
+</html>
