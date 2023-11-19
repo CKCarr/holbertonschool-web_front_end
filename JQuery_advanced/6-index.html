@@ -50,11 +50,11 @@
             $('table').before(
                 $('<input>').attr('type', 'text').attr('placeholder', 'First Name'),
                 $('<input>').attr('type', 'text').attr('placeholder', 'Last Name'),
-                $('<select>').append(
+                $('<select>').css({ 'backgroundColor': 'green' }).append(
                     $('<option>').attr('value', 'before').text('Before'),
                     $('<option>').attr('value', 'after').text('After')
                 ),
-                $('<input>').attr('type', 'submit').click(function () {
+                $('<input>').attr('type', 'submit').val('Submit').click(function () {
                     // add new member when the button is clicked
                     addNewMember(
                         $('input[placeholder="First Name"]').val(),
