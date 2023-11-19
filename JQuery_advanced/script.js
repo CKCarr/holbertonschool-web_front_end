@@ -1,20 +1,27 @@
 // functions for 10. Another Get API
 
 function addPostRow(data) {
-    $('body').prepend(`<p id='row-${data.id}'><span id="postInfo">Post created with id ${data.id}, title: ${data.title}, author: ${data.author}</span></p>`);
-    $(`#row-${data.id}`).prepend(
-        $('<span>').text('(delete) ').on('click', function() {
-            deletePost(data.id);
-        })
-    );
+    const postElement = $(`<p id='row-${data.id}'></p>`);
+    
+    const postInfo = $(`<span>Post created with id ${data.id}, title: ${data.title}, author: ${data.author}</span>`);
+
+    const deleteButton = $('<span>').text('(delete) ').on('click', function() {
+        deletePost(data.id);
+    });
+
+    $(postElement).append(postInfo).prepend(deleteButton);
+
+    $('#postForm').after(postElement);
+
 }
+
 
 function deletePost(id) {
     $.ajax({
-        url: 'http://localhost:3000/posts/${id}',
+        url: `http://localhost:3000/posts/${id}`,
         method: 'DELETE',
         success: function() {
-            $('#row-${id}').remove();
+            $(`#row-${id}`).remove();
         },
         error: function() {
             alert('Error: Post was not deleted!')
