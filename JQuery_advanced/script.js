@@ -1,5 +1,25 @@
+// functions for 10. Another Get API
+
 function addPostRow(data) {
-    $('body').append(`<p><span>Post created with id ${data.id}, title: ${data.title}, author: ${data.author}</span></p>`);
+    $('body').prepend(`<p id='row-${data.id}'><span id="postInfo">Post created with id ${data.id}, title: ${data.title}, author: ${data.author}</span></p>`);
+    $(`#row-${data.id}`).prepend(
+        $('<span>').text('(delete) ').on('click', function() {
+            deletePost(data.id);
+        })
+    );
+}
+
+function deletePost(id) {
+    $.ajax({
+        url: 'http://localhost:3000/posts/${id}',
+        method: 'DELETE',
+        success: function() {
+            $('#row-${id}').remove();
+        },
+        error: function() {
+            alert('Error: Post was not deleted!')
+        }
+    });
 }
 
 function listPosts() {
@@ -10,8 +30,58 @@ function listPosts() {
     });
 }
 
+// functions for 11. Post query
+
+function buildForm() {
+        $('<form>').attr('id', 'postForm').append(
+
+            $('<div>').append(
+                $('<label>').attr('for', 'author').text('Author '),
+                $('<input>').attr('type', 'text').attr('id', 'author')
+            ),
+            $('<div>').append(
+                $('<label>').attr('for', 'title').text('Title '),
+                $('<textarea>').attr('id', 'title')
+            ),
+            $('<input>').attr("type", 'submit').val("Submit")
+
+        ).appendTo('body');
+
+        $('#postForm').on('submit', function(e) {
+            e.preventDefault();
+            sendForm();
+        });
+
+}
+
+
+function sendForm(){
+
+    $('#postForm').after('<p>About to send the query to the API</p>');
+
+    const data = {
+        author: $('#author').val(),
+        title: $('#title').val()
+    };
+
+    $.post({
+        url: 'http://localhost:3000/posts',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function(response) {
+            console.log("Response: ", response); // debug input data
+            addPostRow(response);
+        },
+        error: function() {
+            alert('Error sending POST query!')
+        }
+    });
+
+}
 
 $(document).ready(function() {
     listPosts();
+    buildForm();
 });
 
