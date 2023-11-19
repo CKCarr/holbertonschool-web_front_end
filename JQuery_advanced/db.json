@@ -33,11 +33,6 @@
     {
       "title": "",
       "author": "",
-      "id": 7
-    },
-    {
-      "title": "",
-      "author": "",
       "id": 9
     },
     {
@@ -49,6 +44,36 @@
       "author": "MY BAD",
       "title": "A tale of a typo",
       "id": 19
+    },
+    {
+      "author": "Beee ",
+      "title": "A helpful guide to jquery\n",
+      "id": 20
+    },
+    {
+      "author": "Olive",
+      "title": "The Id's are gone missing",
+      "id": 21
+    },
+    {
+      "author": "WELL",
+      "title": "I need a break",
+      "id": 22
+    },
+    {
+      "author": "Hoping",
+      "title": "I can Retain this info \n",
+      "id": 23
+    },
+    {
+      "author": "ddd",
+      "title": "ddd",
+      "id": 24
+    },
+    {
+      "author": "Eddings",
+      "title": "Belgarath the Sorcerer",
+      "id": 25
     }
   ],
   "comments": [
