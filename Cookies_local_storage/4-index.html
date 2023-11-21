@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Use js-cookie</title>
+    <script src="src/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+</head>
+
+</head>
+
+<body>
+
+    <div class="login" id="form">
+        <h2 class="title">Login to the website</h2>
+        <input id="firstname" type="text" placeholder="Firstname">
+        <input id="email" type="email" name="email" placeholder="Email">
+        <button onclick="setCookiesAndShowWelcomeMessage()">Log me in</button>
+    </div>
+
+
+
+    <!-- Scripts for Cookie Manipulation -->
+    <script>
+
+        //  Create basic cookie settings
+
+        function setCookiesAndShowWelcomeMessage() {
+            // Get values from input fields
+            let firstname = document.getElementById(`firstname`).value;
+            let email = document.getElementById('email').value;
+
+            // set expiration date to 10 days from now with js cookie
+            // Set cookies with expiration and path
+            Cookies.set('firstname', firstname, { expires: 10, path: '/' });
+            Cookies.set('email', email, { expires: 10, path: '/' });
+
+            // call function to show welcome message or form
+            showWelcomeMessageOrForm();
+        }
+
+        function showCookies() {
+            // Get the values of the firstname and email cookies
+            const firstname = Cookies.get('firstname');
+            const email = Cookies.get('email');
+
+            // create a new paragraph element
+            let para = document.createElement('p');
+
+            // Get cookies & render as inner HTML of the paragraph
+            para.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
+
+            // append paragraph to body
+            document.body.appendChild(para);
+        }
+
+        function showForm() {
+            // remove welcome message if it exists
+            const welcomeMsg = document.getElementById('welcomeMsg');
+            if (welcomeMsg) {
+                welcomeMsg.remove();
+            }
+            // show the form
+            document.getElementById('form').style.display = 'block';
+        }
+
+
+        function hideForm() {
+            // hide the form
+            document.getElementById('form').style.display = 'none';
+        }
+
+
+        function deleteCookiesAndShowForm() {
+            // delete cookies
+            Cookies.remove('firstname', { path: '/' })
+            Cookies.remove('email', { path: '/' })
+
+            // show form
+            showForm();
+        }
+
+
+        function showWelcomeMessageOrForm() {
+            // check cookies to see if user is logged in
+            const firstname = Cookies.get('firstname');
+
+            // if not logged in, show Form, otherwise hide form
+            if (firstname === '') {
+                showForm();
+            } else {
+                hideForm();
+
+                // if logged in create and display welcome message
+                const welcomeMessage = document.createElement('h1');
+                welcomeMessage.id = 'welcomeMsg';
+                welcomeMessage.textContent = `Welcome ${firstname} `;
+
+                const logOutLink = document.createElement('a');
+                logOutLink.href = '#';
+                logOutLink.textContent = '(logout)';
+                logOutLink.style.fontWeight = 'normal';
+                logOutLink.style.fontStyle = 'italic';
+                logOutLink.style.marginLeft = '10px';
+                logOutLink.onclick = function () {
+                    // logout, delete cookies, show form
+                    deleteCookiesAndShowForm();
+                    // reset link to default behavior
+                    return false;
+                }
+
+                // append logout link to welcome message
+                welcomeMessage.appendChild(logOutLink);
+
+                // Insert the welcome message at the beginning of the body
+                document.body.insertBefore(welcomeMessage, document.body.firstChild);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
