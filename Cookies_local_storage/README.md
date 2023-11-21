@@ -52,7 +52,9 @@ ls node_modules/.bin/
 
 ***Look for webpack-dev-server in the listed files.***
 
-### 4. There are a few different  ways you can set up how you start the webpack-dev- server
+### 4. Starting the Webpack Dev Server
+
+- There are a few different  ways you can set up how you start the webpack-dev- server
 
 - As the project Specifies by running:
 
@@ -81,9 +83,9 @@ Then, you can start the server with:
 npm start
 ```
 
-### 5. Warning for mode not set. default production
+### 5. Warning for mode not set
 
-Webpack requires you to specify a mode which can either be development, production, or none. This setting optimizes the build for each specific environment.
+- Webpack . default production: requires you to specify a mode which can either be development, production, or none. This setting optimizes the build for each specific environment.
 
 Here's how you can address this warning:
 
