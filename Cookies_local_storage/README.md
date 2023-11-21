@@ -228,3 +228,10 @@ sessionStorage.setItem('sessionKey', 'sessionValue');
 console.log(sessionStorage.getItem('sessionKey'));
 sessionStorage.removeItem('sessionKey');
 ```
+
+---
+
+**NOTES**
+
+To use webpack-dev-server for this project I needed to update a configuration file to allow to host files from path ``'/'`` root. and change .js file from "main" to "index"
+This allowed me to use the webpack-dev-server to test as well as live server.

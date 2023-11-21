@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>0. Create basic cookie</title>
+    <title>1. Create cookie with expiration date and specific path</title>
     <script src="src/index.js"></script>
 
 </head>
@@ -31,8 +31,13 @@
             let firstname = document.getElementById(`firstname`).value;
             let email = document.getElementById('email').value;
 
-            document.cookie = "firstname=" + firstname;
-            document.cookie = "email=" + email;
+            let date = new Date();
+            date.setTime(date.getTime() + (10 * 24 * 60 * 60 * 1000));
+            let expireDate = "expires=" + date.toUTCString();
+
+            // Set cookies with expiration and path
+            document.cookie = `firstname=${firstname}; ${expireDate}; path=/`;
+            document.cookie = `email=${email}; ${expireDate}; path=/`;
         }
 
         function showCookies() {
@@ -46,7 +51,6 @@
             document.body.appendChild(para);
         }
     </script>
-
 </body>
 
 </html>
