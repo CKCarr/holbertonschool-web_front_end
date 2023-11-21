@@ -110,6 +110,33 @@ After setting up your webpack.config.js file, try running the Webpack Dev Server
 **See Step 4 ^**
 This should resolve the warning about the mode not being set. You can further customize the webpack.config.js file with additional configurations like entry points, loaders, plugins, etc., depending on your project's requirements.
 
+**NOTES**
+
+To use webpack-dev-server for this project I needed to update a configuration file to allow to host files from path ``'/'`` root. and change .js file from "main" to "index"
+This allowed me to use the webpack-dev-server to test as well as live server.
+
+webpack-config.js
+
+``` JavaScript
+/* 
+set webpack-dev-server configuration options.
+*/
+path = require('path');
+
+module.exports = {
+    mode: 'development',
+    output: {
+        filename: 'index.js',
+    },
+    devServer: {
+    static: {
+        // Serve from the root directory
+        directory: path.join(__dirname, './'),
+        },
+    }
+};
+```
+
 ---
 
 ## Learning Objectives
@@ -230,8 +257,3 @@ sessionStorage.removeItem('sessionKey');
 ```
 
 ---
-
-**NOTES**
-
-To use webpack-dev-server for this project I needed to update a configuration file to allow to host files from path ``'/'`` root. and change .js file from "main" to "index"
-This allowed me to use the webpack-dev-server to test as well as live server.
