@@ -106,7 +106,8 @@ Set the mode to 'development' as it enables ->more helpful error messages and ->
  For production,  change this to 'production', to enable optimizations like minification and more efficient code.
 
 - Run Webpack Dev Server Again
-After setting up your webpack.config.js file, try running the Webpack Dev Server again: ***See Step 4 ^***
+After setting up your webpack.config.js file, try running the Webpack Dev Server again:
+**See Step 4 ^**
 This should resolve the warning about the mode not being set. You can further customize the webpack.config.js file with additional configurations like entry points, loaders, plugins, etc., depending on your project's requirements.
 
 ---
@@ -182,7 +183,7 @@ npm install js-cookie
 ```
 
 - ***Usage:***
-- After installation, you can use js-cookie in your JavaScript code.
+ After installation, you can use js-cookie in your JavaScript code.
 It provides an easier way to create, read, and delete cookies.
 For example:
 
