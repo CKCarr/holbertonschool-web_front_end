@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Local storage</title>
+
+</head>
+
+<body>
+    <script type="application/javascript">
+        // Create Shopping Cart using only local Storage
+
+        // Array of Shopping Cart Items
+        const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+
+        // check if local storage is enabled or sound alert
+        if (typeof window.localStorage === 'undefined') {
+            alert('Sorry, your browser does not support Web storage. Try again with a better one')
+        } else {
+            // if localStorage is enabled call app functions
+            createStore();
+            displayCart();
+        }
+
+        function addItemsToCart(item) {
+            // add items to cart
+            localStorage.setItem(item, 'true');
+        }
+
+        function createStore() {
+            // create list to add to Store
+            const ul = document.createElement('ul');
+
+            // loop through Array of availableItems
+            availableItems.forEach(item => {
+
+                // create list elements for each item
+                const li = document.createElement('li');
+                li.textContent = item;
+
+                // onclick element adds item to cart
+                li.onclick = () => {
+                    addItemsToCart(item);
+                }
+
+                // add list items in unordered list
+                ul.appendChild(li);
+            });
+            // add list to document body
+            document.body.appendChild(ul);
+        }
+
+        function displayCart() {
+            // check if local storage contains items, if not do nothing
+            if (localStorage.length > 0) {
+                // count items
+                const itemCount = localStorage.length;
+
+                // create message to display if cart has items
+                const message = `You previously had ${itemCount} items in your cart`;
+
+                // create paragraph element to display message
+                const para = document.createElement('p');
+                para.textContent = message;
+
+                // append paragraph element to document body
+                document.body.appendChild(para);
+            }
+            // ELSE: empty localStorage: function does nothing
+        }
+
+    </script>
+</body>
+
+</html>
